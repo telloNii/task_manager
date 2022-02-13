@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:task_manager/screens/calendar.dart';
 import 'package:task_manager/screens/home_screen.dart';
 import 'package:task_manager/screens/splash_screen.dart';
 
@@ -16,6 +17,7 @@ class TaskManagerApp extends StatelessWidget {
       routes: {
         SplashScreen.id: (context) => const SplashScreen(),
         HomeScreen.id: (context) => const HomeScreen(),
+        TaskCalendar.id: (context) => const TaskCalendar(),
       },
     );
   }
