@@ -24,7 +24,7 @@ class HomeScreenTaskStatusTile extends StatelessWidget {
           width: MediaQuery.of(context).size.width * 0.5,
           decoration: BoxDecoration(
             color: const Color(0xFF5451D6),
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: BorderRadius.circular(25),
           ),
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 16.0),
