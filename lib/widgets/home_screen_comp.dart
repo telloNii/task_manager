@@ -36,6 +36,7 @@ class _HomeScreenCompositionState extends State<HomeScreenComposition> {
         ),
         const CurrentTaskCard(
           taskTitle: 'Mobile App Development',
+          isHomeScreen: true,
         ),
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 12.0),
