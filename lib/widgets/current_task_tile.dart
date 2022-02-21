@@ -4,12 +4,14 @@ import 'package:task_manager/screens/calendar.dart';
 class CurrentTaskCard extends StatelessWidget {
   const CurrentTaskCard({
     required this.taskTitle,
+    required this.isHomeScreen,
     this.firstPersonName,
     this.secondPersonName,
     this.morePersonNames,
     Key? key,
   }) : super(key: key);
   final String? taskTitle, firstPersonName, secondPersonName, morePersonNames;
+  final bool isHomeScreen;
   String displayNames() {
     if (firstPersonName != null && secondPersonName == null) {
       return firstPersonName!;
@@ -29,7 +31,7 @@ class CurrentTaskCard extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 16.0),
       child: Container(
-        height: 150.0,
+        height: isHomeScreen ? 150.0 : 120.0,
         decoration: BoxDecoration(
           color: const Color(0xFF5451D6),
           borderRadius: BorderRadius.circular(20),
@@ -39,10 +41,10 @@ class CurrentTaskCard extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
-                "Mobile App Design",
+              Text(
+                taskTitle!,
                 style: TextStyle(
-                  fontSize: 18.0,
+                  fontSize: isHomeScreen ? 18.0 : 15.0,
                   fontFamily: "Poppins",
                   color: Colors.white,
                   fontWeight: FontWeight.w500,
@@ -50,7 +52,8 @@ class CurrentTaskCard extends StatelessWidget {
               ),
               Text(
                 displayNames(),
-                style: const TextStyle(
+                style: TextStyle(
+                  fontSize: isHomeScreen ? 16.0 : 12.0,
                   color: Colors.white70,
                   fontFamily: "Poppins",
                 ),
@@ -61,23 +64,26 @@ class CurrentTaskCard extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Stack(
-                      children: const [
+                      children: [
                         CircleAvatar(
-                          radius: 20,
-                          backgroundImage: AssetImage("assets/images/75843984.jpeg"),
+                          radius: isHomeScreen ? 20 : 15,
+                          backgroundImage:
+                              const AssetImage("assets/images/75843984.jpeg"),
                         ),
-                        Padding(
-                          padding: EdgeInsets.only(left: 24.0),
-                          child: CircleAvatar(
-                            radius: 20,
-                            backgroundImage: AssetImage("assets/images/75843984.jpeg"),
-                          ),
-                        ),
+                        // Padding(
+                        //   padding: const EdgeInsets.only(left: 24.0),
+                        //   child: CircleAvatar(
+                        //     radius: isHomeScreen ? 20 : 15,
+                        //     backgroundImage:
+                        //         const AssetImage("assets/images/75843984.jpeg"),
+                        //   ),
+                        // ),
                       ],
                     ),
-                    const Text(
+                    Text(
                       "Now",
                       style: TextStyle(
+                        fontSize: isHomeScreen ? 16.0 : 15.0,
                         color: Colors.white70,
                         fontFamily: "Poppins",
                       ),
